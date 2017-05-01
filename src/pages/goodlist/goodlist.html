@@ -66,9 +66,13 @@
 
   <ion-fab bottom right #fab>
     <button ion-fab ><ion-icon name="apps"></ion-icon></button>
-    <ion-fab-list side="top">
-      <button ion-fab color="google" (click)="openSubmit()"><ion-icon name="add"></ion-icon></button>
-      <button ion-fab color="twitter"><ion-icon name="at"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab color="primary" (click)="openSubmit()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button ion-fab color="twitter">
+        <ion-icon name="at"></ion-icon>
+      </button>
     </ion-fab-list>
   </ion-fab>
 

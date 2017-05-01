@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { AlertController, App, FabContainer, List, ModalController, NavController, LoadingController,Refresher } from 'ionic-angular';
+import { AlertController, App, List, ModalController, NavController, LoadingController,Refresher } from 'ionic-angular';
 /*
   To learn how to use third party libs in an
   Ionic app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
@@ -31,6 +31,7 @@ export class GoodList {
   shownSessions: any = [];
   goods: any = [];
   confDate: string;
+  submitPage:any=GoodSubmitPage;
 
   constructor(
     public alertCtrl: AlertController,
@@ -39,7 +40,7 @@ export class GoodList {
     public modalCtrl: ModalController,
     public navCtrl: NavController,
     public gdata:GoodsData,
-    public toast:ToastService,
+    public toast:ToastService
   ) {}
 
   ionViewDidLoad() {
@@ -77,14 +78,8 @@ export class GoodList {
     });
   }
 
-  openSubmit() {
-    this.navCtrl.push(GoodSubmitPage).then(
-        ()=>{
-          const index = this.navCtrl.getActive().index;
-          console.log(this.navCtrl.getActive());
-          this.navCtrl.remove(index+1);
-        }
-    ).catch(exception => {console.log('Exception ' + exception)});
+  openSubmit():void {
+    this.app.getRootNav().push(this.submitPage);
   }
 
   doRefresh(refresher: Refresher) {
