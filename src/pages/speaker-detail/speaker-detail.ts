@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
 
-import { SessionDetailPage } from '../session-detail/session-detail';
+import { GoodDetailPage } from '../good-detail/good-detail';
 
 @Component({
   selector: 'page-speaker-detail',
@@ -16,7 +16,7 @@ export class SpeakerDetailPage {
   }
 
   goToSessionDetail(session: any) {
-    this.navCtrl.push(SessionDetailPage, { 
+    this.navCtrl.push(GoodDetailPage, {
       name: session.name,
       session: session
     });

@@ -288,8 +288,8 @@
 
   "map": [{
     "name": "Monona Terrace Convention Center",
-    "lat": 43.071584,
-    "lng": -89.380120,
+    "lat": 39.9600153536,
+    "lng": 116.3687167131,
     "center": true
   }, {
     "name": "Ionic HQ",

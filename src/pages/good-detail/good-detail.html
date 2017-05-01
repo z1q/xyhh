@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>物品</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>物品:{{good.goodname}}</h1>
+  <img src="{{good.avatar}}" alt="Good profile pic">
+  <h4>
+    介绍:{{good.content}}
+  </h4>
+
+  <p>
+    时间:{{good.time}}
+  </p>
+
+  <p>价格:{{good.price}}元</p>
+  <ion-row no-padding>
+    <ion-col col-6 col-lg-auto text-center>
+      <button ion-button clear small color="primary" icon-left>
+        <ion-icon name='share-alt'></ion-icon>
+        分享
+      </button>
+    </ion-col>
+    <ion-col col-6 col-lg-auto text-center text-lg-right>
+      <button ion-button clear small color="primary" icon-left>
+        <ion-icon name='chatboxes'></ion-icon>
+        联系
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-content>

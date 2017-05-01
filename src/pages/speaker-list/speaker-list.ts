@@ -5,7 +5,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { ConferenceData } from '../../providers/conference-data';
 
-import { SessionDetailPage } from '../session-detail/session-detail';
+import { GoodDetailPage } from '../good-detail/good-detail';
 import { SpeakerDetailPage } from '../speaker-detail/speaker-detail';
 
 @Component({
@@ -31,7 +31,7 @@ export class SpeakerListPage {
   }
 
   goToSessionDetail(session: any) {
-    this.navCtrl.push(SessionDetailPage, { 
+    this.navCtrl.push(GoodDetailPage, {
       name: session.name,
       session: session
     });

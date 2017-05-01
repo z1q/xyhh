@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-segment [(ngModel)]="segment" (ionChange)="updateGood()">
+      <ion-segment-button value="all">
+        所有物品
+      </ion-segment-button>
+      <ion-segment-button value="favorites">
+        喜欢
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentFilter()">
+        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-searchbar color="primary"
+                   [(ngModel)]="queryText"
+                   (ionInput)="updateSchedule()"
+                   placeholder="Search">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+
+    <ion-grid fixed>
+      <ion-row align-items-stretch>
+        <ion-col col-12 col-md-6 align-self-stretch align-self-center *ngFor="let good of goods">
+
+          <ion-card class="good-card">
+
+            <ion-card-header (click)="goToGoodDetail(good)">
+
+                  <img src="{{good.avatar}}" alt="Good profile pic">
+
+            </ion-card-header>
+
+            <ion-card-content class="outer-content">
+              <button ion-item detail-none>
+                <ion-avatar item-left>
+                  <img src="{{good.avatar}}" alt="User profile pic">
+                </ion-avatar>
+                {{good.goodname}}
+                <p>价格:{{good.price}}元</p>
+              </button>
+            </ion-card-content>
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-list>
+
+  <ion-fab bottom right #fab>
+    <button ion-fab ><ion-icon name="apps"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="google" (click)="openSubmit()"><ion-icon name="add"></ion-icon></button>
+      <button ion-fab color="twitter"><ion-icon name="at"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

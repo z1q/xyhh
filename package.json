@@ -1,10 +1,10 @@
 {
-  "name": "ionic-conference-app",
+  "name": "hhxy-app",
   "description": "Ionic Conference App",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/driftyco/ionic-conference-app.git"
+    "url": "https://github.com/z1q/xyhh.git"
   },
   "scripts": {
     "build": "ionic-app-scripts build",
