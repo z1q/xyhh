@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { AlertController, App, List, ModalController, NavController, LoadingController,Refresher } from 'ionic-angular';
+import { AlertController, App,ViewController, List, ModalController, NavController, LoadingController,Refresher } from 'ionic-angular';
 /*
   To learn how to use third party libs in an
   Ionic app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
@@ -14,8 +14,7 @@ import { ToastService } from '../../providers/toast';
 
 @Component({
   selector: 'page-goodlist',
-  templateUrl: 'goodlist.html',
-  providers:[GoodsData,ToastService]
+  templateUrl: 'goodlist.html'
 })
 export class GoodList {
   // the list is a child of the schedule page
@@ -31,11 +30,11 @@ export class GoodList {
   shownSessions: any = [];
   goods: any = [];
   confDate: string;
-  submitPage:any=GoodSubmitPage;
 
   constructor(
     public alertCtrl: AlertController,
     public app: App,
+    public viewCtrl:ViewController,
     public loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
     public navCtrl: NavController,
@@ -78,8 +77,8 @@ export class GoodList {
     });
   }
 
-  openSubmit():void {
-    this.app.getRootNav().push(this.submitPage);
+  openSubmit() {
+    this.navCtrl.push(ScheduleFilterPage);
   }
 
   doRefresh(refresher: Refresher) {

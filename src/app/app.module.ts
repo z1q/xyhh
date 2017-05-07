@@ -29,6 +29,8 @@ import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
+import { GoodsData } from '../providers/goods';
+import { ToastService } from '../providers/toast';
 import { Serv } from '../providers/servers';
 
 @NgModule({
@@ -97,7 +99,9 @@ import { Serv } from '../providers/servers';
     UserData,
     InAppBrowser,
     SplashScreen,
-    Serv
+    Serv,
+    GoodsData,
+    ToastService
   ]
 })
 export class AppModule { }

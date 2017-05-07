@@ -12,7 +12,7 @@ export class GoodsData {
 
   constructor(
       public http: Http,
-      private serv:Serv,
+      private serv:Serv
   ) {
     this.link = this.serv.getServ() + '/api/goods';
   }

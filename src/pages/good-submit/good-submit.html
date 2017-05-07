@@ -4,30 +4,19 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>发布物品</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="presentPopover($event)">
-        <ion-icon name="more"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-card class="logo">
-    <img src="assets/img/appicon.svg" height="100" alt="Ionic logo">
-  </ion-card>
 
   <form #goodForm="ngForm" floating>
     <ion-list no-lines>
       <ion-item>
         <ion-label stacked color="primary">物品名称</ion-label>
-        <ion-input [(ngModel)]="good.goodname" name="goodname" type="text" #goodname="ngModel" spellcheck="false" autocapitalize="off"
+        <ion-input [(ngModel)]="good.goodname" name="goodname" type="text"
                    required>
         </ion-input>
       </ion-item>
-      <p ion-text [hidden]="goodname.valid || submitted == false" color="danger" padding-left>
-        需要填写物品名称
-      </p>
 
       <ion-item>
         <div class="img-item">
@@ -38,30 +27,28 @@
             <img [src]="img.url" alt=""/>
           </div>
         </div>
-        <!-- 上传图片 -->
-        <div class="file-format">
-          <input type="file" #file id="file" (change)="fileUp(file.files[0])">
-          <ion-icon class="" name="add" (click)="fileClick()"></ion-icon>
-        </div>
       </ion-item>
+
+
 
       <ion-item>
         <ion-label stacked color="primary">价格</ion-label>
-        <ion-input [(ngModel)]="good.price" name="price" type="number" #price="ngModel" required>
+        <ion-input [(ngModel)]="good.price" name="price" type="number" required>
         </ion-input>
       </ion-item>
-      <p ion-text [hidden]="price.valid || submitted == false" color="danger" padding-left>
-        需要写价格
-      </p>
 
       <ion-item>
         <ion-label stacked color="primary">说明</ion-label>
-        <ion-input [(ngModel)]="good.content" name="content" type="text" #content="ngModel" required>
-        </ion-input>
+          <ion-textarea rows="5" [(ngModel)]="good.content" name="content" type="text" required>
+          </ion-textarea>
       </ion-item>
-      <p ion-text [hidden]="content.valid || submitted == false" color="danger" padding-left>
-        需要写说明
-      </p>
+      <div class="file-format">
+        <input type="file" id="avfile" #avfile (change)="fileUp(avfile.files[0])"/>
+      </div>
+      <ion-item>
+        <ion-label stacked color="primary">头像</ion-label>
+        <ion-input type="text" id="fileurl" placeholder="手动复制图片链接到这里" [(ngModel)]="good.avatar" name="avatar"></ion-input>
+      </ion-item>
     </ion-list>
 
     <ion-row responsive-sm>

@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { App,NavController } from 'ionic-angular';
 
-import { NavController } from 'ionic-angular';
-import { GoodsData } from '../../providers/goods';
 import { TabsPage } from '../tabs/tabs';
-declare var AV:any;
+import { GoodsData } from '../../providers/goods';
+import { ToastService } from '../../providers/toast';
+
+import * as AV from 'leancloud-storage';
+
 @Component({
   selector: 'page-good-submit',
   templateUrl: 'good-submit.html',
-  providers:[GoodsData]
+  providers:[GoodsData,ToastService]
 })
-export class GoodSubmitPage {
+export class GoodSubmitPage implements OnInit{
 
   good: {
     goodname?: string,
@@ -23,22 +26,27 @@ export class GoodSubmitPage {
 
   constructor(
       public navCtrl: NavController,
-      public gdata: GoodsData
-  ){
+      public gdata: GoodsData,
+      public toast:ToastService,
+      public app:App
+  ){}
+
+  ngOnInit():void {
     let APP_ID = 'k470mnQ2IdFsV0ep6hBUYhES-gzGzoHsz';
     let APP_KEY = 'HR9AQhyPpm1GGiKv6Szp2FB0';
-    AV.init({
-      appId: APP_ID,
-      appKey: APP_KEY
-    });
+    AV.init({appId: APP_ID,appKey: APP_KEY});
   }
 
-  fileClick():void {
-    document.getElementById('file').click();
+  ionViewDidLoad() {
+    this.initial();
   }
 
-  removeImg(i:any):void {
-    this.imgs.splice(i, 1);
+  initial(){
+    this.good = {};
+  }
+
+  fileClick(){
+    document.getElementById('ssfile').click();
   }
 
   fileUp(localFile:any):void {
@@ -63,10 +71,11 @@ export class GoodSubmitPage {
 
   onSubmit(form: NgForm) {
     this.submitted = true;
-
     if (form.valid) {
-      this.gdata.post(this.good);
-      this.navCtrl.push(TabsPage);
+      this.gdata.post(this.good).then((suc)=>{
+        this.toast.present(suc);
+        this.navCtrl.push(TabsPage,{tabIndex:3});
+      });
     }
   }
 

@@ -6,7 +6,7 @@
 
     <ion-segment [(ngModel)]="segment" (ionChange)="updateGood()">
       <ion-segment-button value="all">
-        所有物品
+        所有物品6
       </ion-segment-button>
       <ion-segment-button value="favorites">
         喜欢
@@ -23,7 +23,7 @@
   <ion-toolbar no-border-top>
     <ion-searchbar color="primary"
                    [(ngModel)]="queryText"
-                   (ionInput)="updateSchedule()"
+                   (ionInput)="updateGood()"
                    placeholder="Search">
     </ion-searchbar>
   </ion-toolbar>
