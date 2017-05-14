@@ -32,6 +32,7 @@ import { UserData } from '../providers/user-data';
 import { GoodsData } from '../providers/goods';
 import { ToastService } from '../providers/toast';
 import { Serv } from '../providers/servers';
+import { UserProfile } from '../providers/user'
 
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import { Serv } from '../providers/servers';
     SplashScreen,
     Serv,
     GoodsData,
-    ToastService
+    ToastService,
+    UserProfile
   ]
 })
 export class AppModule { }

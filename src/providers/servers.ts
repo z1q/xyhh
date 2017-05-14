@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class Serv {
 
-  public baseUrl="http://ife.leanapp.cn";
+  public baseUrl="http://localhost:3000";
 
   getServ():any{
     return this.baseUrl;
